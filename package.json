@@ -5,9 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "testcafe chrome e2e/tests/**/*",
+    "ci": "testcafe chrome:headless e2e/tests/**/* --app \"ng serve\" --app-init-delay 8000"
   },
   "private": true,
   "dependencies": {
@@ -42,6 +41,7 @@
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.4.0",
+    "testcafe": "^1.0.1",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~3.2.2"
