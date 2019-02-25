@@ -1,0 +1,12 @@
+{
+  "extends": "../tslint.json",
+  "rules": {
+    "component-class-suffix": false,
+    "max-line-length": false,
+    "no-non-null-assertion": false,
+    "no-shadowed-variable": false,
+    "prefer-const": false,
+    "no-unused-expression": false,
+    "no-string-literal": false
+  }
+}
