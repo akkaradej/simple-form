@@ -6,5 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'testcafe-poc';
+  title = 'simple-form';
+  data: any = {};
+  isSubmitted = false;
+
+  submit(form) {
+    if (form.invalid) {
+      return;
+    }
+    this.isSubmitted = true;
+  }
+
+  cancel() {
+    this.isSubmitted = false;
+    this.data = {};
+  }
 }

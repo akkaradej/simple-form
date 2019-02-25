@@ -1,20 +1,134 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<form
+  novalidate
+  #form="ngForm"
+  (ngSubmit)="submit(form)"
+  [class.is-submitted]="form.submitted"
+>
+  <div class="box">
+    <h1 class="title">Automated Testing POC</h1>
 
+    <div class="field">
+      <label class="label">Name</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          name="name"
+          placeholder="Text input"
+          [(ngModel)]="data.name"
+          required
+        >
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Subject</label>
+      <div class="control">
+        <div class="select">
+          <select
+            name="subject"
+            [(ngModel)]="data.subject"
+            required
+          >
+            <option [value]="undefined">Select dropdown</option>
+            <option value="1">With options 1</option>
+            <option value="2">With options 2</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Message</label>
+      <div class="control">
+        <textarea
+          [(ngModel)]="data.message"
+          class="textarea"
+          name="message"
+          placeholder="Textarea"
+          required
+        ></textarea>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <label class="checkbox">
+          <input
+            type="checkbox"
+            name="agree"
+            [(ngModel)]="data.agree"
+          >
+          I agree
+        </label>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <label class="radio">
+          <input
+            type="radio"
+            name="question"
+            value="yes"
+            [(ngModel)]="data.question"
+            required
+          >
+          Yes
+        </label>
+        <label class="radio">
+          <input
+            type="radio"
+            name="question"
+            value="no"
+            [(ngModel)]="data.question"
+            required
+          >
+          No
+        </label>
+      </div>
+    </div>
+
+    <div class="field is-grouped">
+      <div class="control">
+        <button class="button is-link">Submit</button>
+      </div>
+      <div class="control">
+        <button
+          class="button is-text"
+          type="button"
+          (click)="cancel()"
+        >Cancel</button>
+      </div>
+    </div>
+  </div>
+
+</form>
+
+
+
+<div
+  class="box"
+  *ngIf="isSubmitted"
+>
+  <div>
+    <span>Name: </span>
+    <span id="dataName">{{ data.name }}</span>
+  </div>
+  <div>
+    <span>Subject: </span>
+    <span id="dataSubject">{{ data.subject }}</span>
+  </div>
+  <div>
+    <span>Message: </span>
+    <span id="dataMessage">{{ data.message }}</span>
+  </div>
+  <div>
+    <span>Agree?: </span>
+    <span id="dataAgree">{{ data.agree }}</span>
+  </div>
+  <div>
+    <span>Question: </span>
+    <span id="dataQuestion">{{ data.question }}</span>
+  </div>
+</div>
