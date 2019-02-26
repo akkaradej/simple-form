@@ -18,5 +18,6 @@ steps:
 - script: |
     npm install -g @angular/cli
     npm install
-    ng build --prod
-  displayName: 'npm install and build'
+    ng build -configuration=test
+    testcafe chrome:headless e2e/tests/**/* --app "http-server ./dist/simple-form -a localhost -p 4200 -c-1"
+  displayName: 'install and test'
