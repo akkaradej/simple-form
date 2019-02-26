@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "e2e": "testcafe chrome e2e/tests/**/*",
-    "ci": "testcafe chrome:headless e2e/tests/**/* --app \"ng serve\" --app-init-delay 8000"
+    "ci": "ng build --configuration=test && testcafe chrome:headless e2e/tests/**/* --app \"http-server ./dist/simple-form -a localhost -p 4200 -c-1\""
   },
   "private": true,
   "dependencies": {
@@ -20,6 +20,7 @@
     "@angular/router": "~7.2.0",
     "bulma": "^0.7.4",
     "core-js": "^2.5.4",
+    "http-server": "^0.11.1",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
@@ -42,6 +43,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.4.0",
     "testcafe": "^1.0.1",
+    "testcafe-angular-selectors": "^0.3.2",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~3.2.2"

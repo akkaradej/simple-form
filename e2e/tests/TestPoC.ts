@@ -6,6 +6,7 @@ import {
 
 fixture`Test PoC`
     .page`http://localhost:4200`;
+
 test('Test case PoC', async t => {
     await t
         // Name
@@ -26,6 +27,6 @@ test('Test case PoC', async t => {
         .expect(Selector('#dataSubject').innerText).eql('1')
         .expect(Selector('#dataMessage').innerText).eql('ทดลองเขียน PoC')
         .expect(Selector('#dataAgree').innerText).eql('true')
-        .expect(Selector('#dataQuestion').innerText).eql('yes')
+        .expect(Selector('#dataQuestion').innerText).eql('yes');
 
-})
+});
