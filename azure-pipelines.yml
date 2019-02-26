@@ -18,6 +18,7 @@ steps:
 - script: |
     npm install -g @angular/cli
     npm install -g http-server
+    npm install -g testcafe
     npm install
     ng build -configuration=test
     testcafe chrome:headless e2e/tests/**/* --app "http-server ./dist/simple-form -a localhost -p 4200 -c-1"
