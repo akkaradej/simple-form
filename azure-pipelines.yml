@@ -17,7 +17,15 @@ steps:
 
 - script: |
     npm install -g @angular/cli
+    npm install -g http-server
     npm install
     ng build -configuration=test
     testcafe chrome:headless e2e/tests/**/* --app "http-server ./dist/simple-form -a localhost -p 4200 -c-1"
-  displayName: 'install and test'
+  displayName: 'Install Packages'
+
+- script: ng build -configuration=test
+  displayName: 'Build Test'
+
+- script: testcafe chrome:headless e2e/tests/**/* --app "http-server ./dist/simple-form -a localhost -p 4200 -c-1"
+  displayName: 'Run Test'
+

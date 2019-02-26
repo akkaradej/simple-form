@@ -27,12 +27,6 @@ test('Test case PoC', async t => {
         .expect(Selector('#dataSubject').innerText).eql('1')
         .expect(Selector('#dataMessage').innerText).eql('ทดลองเขียน PoC')
         .expect(Selector('#dataAgree').innerText).eql('true')
-<<<<<<< HEAD
         .expect(Selector('#dataQuestion').innerText).eql('yes');
 
 });
-=======
-        .expect(Selector('#dataQuestion').innerText).eql('yes')
-
-})
->>>>>>> 5aceba6c3afe8ceb330477bd4545a5c3e2c409f1
