@@ -16,7 +16,7 @@ pool:
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '8.x'
+    versionSpec: '10.x'
   displayName: 'Install Node.js'
 
 - script: yarn install
@@ -27,10 +27,3 @@ steps:
 
 - script: yarn run e2e:ci
   displayName: 'Run E2E Test'
-
-- script: yarn run build:dev
-  displayName: 'Build Dev'
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: 'dist'
