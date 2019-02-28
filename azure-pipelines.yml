@@ -6,6 +6,8 @@
 trigger:
 - develop
 
+pr: develop
+
 pool:
   vmImage: 'Ubuntu-16.04'
 
@@ -27,4 +29,11 @@ steps:
 
 - script: testcafe chrome:headless e2e/tests/**/* --app "http-server ./dist/simple-form -a localhost -p 4200 -c-1"
   displayName: 'Run Test'
+
+- script: ng build --configuration=dev
+  displayName: 'Build Dev'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'dist'
 
