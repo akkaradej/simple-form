@@ -18,23 +18,18 @@ steps:
     versionSpec: '8.x'
   displayName: 'Install Node.js'
 
-- script: |
-    npm install -g @angular/cli
-    npm install -g http-server
-    npm install -g testcafe
-    npm install
+- script: yarn install
   displayName: 'Install Packages'
 
-- script: ng build --configuration=test
+- script: yarn run build:test
   displayName: 'Build Test'
 
-- script: testcafe chrome:headless e2e/tests/**/* --app "http-server ./dist/simple-form -a localhost -p 4200 -c-1"
-  displayName: 'Run Test'
+- script: yarn run e2e:ci
+  displayName: 'Run E2E Test'
 
-- script: ng build --configuration=dev
+- script: yarn run build:dev
   displayName: 'Build Dev'
 
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: 'dist'
-

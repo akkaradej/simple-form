@@ -4,9 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build:dev": "ng build --configuration=dev",
+    "build:test": "ng build --configuration=test",
     "e2e": "testcafe chrome e2e/tests/**/*",
-    "ci": "ng build --configuration=test && testcafe chrome:headless e2e/tests/**/* --app \"http-server ./dist/simple-form -a localhost -p 4200 -c-1\""
+    "e2e:ci": "testcafe chrome:headless e2e/tests/**/* --app \"http-server ./dist/simple-form -a localhost -p 4200 -c-1\"",
+    "http": "http-server ./dist/simple-form -a localhost -p 4200 -c-1"
   },
   "private": true,
   "dependencies": {
