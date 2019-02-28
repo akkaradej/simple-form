@@ -3,10 +3,11 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
-trigger:
-- develop
+# Filter pushed branch
+trigger: none
 
-pr: 
+# Filter PR target branch to be merge
+pr:
 - develop
 
 pool:
